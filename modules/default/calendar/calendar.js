@@ -11,8 +11,8 @@ Module.register("calendar", {
 
 	// Define module defaults
 	defaults: {
-		maximumEntries: 10, // Total Maximum Entries
-		maximumNumberOfDays: 365,
+		maximumEntries: 5, // Total Maximum Entries
+		maximumNumberOfDays: 30,
 		displaySymbol: true,
 		defaultSymbol: "calendar", // Fontawesome Symbol see http://fontawesome.io/cheatsheet/
 		displayRepeatingCountTitle: false,

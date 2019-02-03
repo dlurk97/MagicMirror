@@ -15,17 +15,17 @@ Module.register("compliments", {
 				"Hey there sexy!"
 			],
 			morning: [
-				"Good morning, handsome!",
+				"Good morning!!!",
 				"Enjoy your day!",
-				"How was your sleep?"
+				"Go get'em!"
 			],
 			afternoon: [
-				"Hello, beauty!",
-				"You look sexy!",
+				"Good afternoon!",
+				"Hope you are having a great day!",
 				"Looking good today!"
 			],
 			evening: [
-				"Wow, you look hot!",
+				"Good evening!",
 				"You look nice!",
 				"Hi, sexy!"
 			]
@@ -33,10 +33,10 @@ Module.register("compliments", {
 		updateInterval: 30000,
 		remoteFile: null,
 		fadeSpeed: 4000,
-		morningStartTime: 3,
+		morningStartTime: 5,
 		morningEndTime: 12,
 		afternoonStartTime: 12,
-		afternoonEndTime: 17
+		afternoonEndTime: 18
 	},
 
 	// Set currentweather from module
