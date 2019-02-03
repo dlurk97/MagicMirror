@@ -133,7 +133,7 @@ if command_exists plymouth; then
 			sudo mkdir $THEME_DIR/MagicMirror
 		fi
 
-		if sudo cp ~/MagicMirrorPersonal/splashscreen/splash.png $THEME_DIR/MagicMirrorPersonal/splash.png && sudo cp ~/MagicMirrorPersonal/splashscreen/MagicMirror.plymouth $THEME_DIR/MagicMirrorPersonal/MagicMirror.plymouth && sudo cp ~/MagicMirrorPersonal/splashscreen/MagicMirror.script $THEME_DIR/MagicMirrorPersonal/MagicMirror.script; then
+		if sudo cp ~/MagicMirrorPersonal/splashscreen/splash.png $THEME_DIR/MagicMirrorPersonal/splash.png && sudo cp ~/MagicMirrorPersonal/splashscreen/MagicMirrorPersonal.plymouth $THEME_DIR/MagicMirrorPersonal/MagicMirrorPersonal.plymouth && sudo cp ~/MagicMirrorPersonal/splashscreen/MagicMirrorPersonal.script $THEME_DIR/MagicMirrorPersonal/MagicMirrorPersonal.script; then
 			echo -e "\e[90mSplashscreen: Theme copied successfully.\e[0m"
 			if sudo plymouth-set-default-theme -R MagicMirror; then
 				echo -e "\e[92mSplashscreen: Changed theme to MagicMirrorPersonal successfully.\e[0m"
