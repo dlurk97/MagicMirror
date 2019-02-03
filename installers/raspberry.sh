@@ -17,6 +17,8 @@ echo '                       $$\   $$ |'
 echo '                       \$$$$$$  |'
 echo '                        \______/'
 echo -e "\e[0m"
+echo 'This is a custom version for the needs & wants of Dylan.'
+echo -e "\e[0m"
 
 # Define the tested version of Node.js.
 NODE_TESTED="v5.1.0"
@@ -27,7 +29,7 @@ ARM=$(uname -m)
 # Check the Raspberry Pi version.
 if [ "$ARM" != "armv7l" ]; then
 	echo -e "\e[91mSorry, your Raspberry Pi is not supported."
-	echo -e "\e[91mPlease run MagicMirror on a Raspberry Pi 2 or 3."
+	echo -e "\e[91mPlease run MagicMirrorPersonal on a Raspberry Pi 2 or 3."
 	echo -e "\e[91mIf this is a Pi Zero, you are in the same boat as the original Raspberry Pi. You must run in server only mode."
 	exit;
 fi
@@ -90,25 +92,25 @@ fi
 
 # Install MagicMirror
 cd ~
-if [ -d "$HOME/MagicMirror" ] ; then
-	echo -e "\e[93mIt seems like MagicMirror is already installed."
+if [ -d "$HOME/MagicMirrorPersonal" ] ; then
+	echo -e "\e[93mIt seems like MagicMirrorPersonal is already installed."
 	echo -e "To prevent overwriting, the installer will be aborted."
-	echo -e "Please rename the \e[1m~/MagicMirror\e[0m\e[93m folder and try again.\e[0m"
+	echo -e "Please rename the \e[1m~/MagicMirrorPersonal\e[0m\e[93m folder and try again.\e[0m"
 	echo ""
-	echo -e "If you want to upgrade your installation run \e[1m\e[97mgit pull\e[0m from the ~/MagicMirror directory."
+	echo -e "If you want to upgrade your installation run \e[1m\e[97mgit pull\e[0m from the ~/MagicMirrorPersonal directory."
 	echo ""
 	exit;
 fi
 
-echo -e "\e[96mCloning MagicMirror ...\e[90m"
-if git clone --depth=1 https://github.com/MichMich/MagicMirror.git; then 
-	echo -e "\e[92mCloning MagicMirror Done!\e[0m"
+echo -e "\e[96mCloning MagicMirrorPersonal ...\e[90m"
+if git clone --depth=1 https://github.com/dlurk97/MagicMirrorPersonal.git; then 
+	echo -e "\e[92mCloning MagicMirrorPersonal Done!\e[0m"
 else
 	echo -e "\e[91mUnable to clone MagicMirror."
 	exit;
 fi
 
-cd ~/MagicMirror  || exit
+cd ~/MagicMirrorPersonal  || exit
 echo -e "\e[96mInstalling dependencies ...\e[90m"
 if npm install; then 
 	echo -e "\e[92mDependencies installation Done!\e[0m"
@@ -127,14 +129,14 @@ if command_exists plymouth; then
 	echo -e "\e[90mSplashscreen: Checking themes directory.\e[0m"
 	if [ -d $THEME_DIR ]; then
 		echo -e "\e[90mSplashscreen: Create theme directory if not exists.\e[0m"
-		if [ ! -d $THEME_DIR/MagicMirror ]; then
+		if [ ! -d $THEME_DIR/MagicMirrorPersonal ]; then
 			sudo mkdir $THEME_DIR/MagicMirror
 		fi
 
-		if sudo cp ~/MagicMirror/splashscreen/splash.png $THEME_DIR/MagicMirror/splash.png && sudo cp ~/MagicMirror/splashscreen/MagicMirror.plymouth $THEME_DIR/MagicMirror/MagicMirror.plymouth && sudo cp ~/MagicMirror/splashscreen/MagicMirror.script $THEME_DIR/MagicMirror/MagicMirror.script; then
+		if sudo cp ~/MagicMirrorPersonal/splashscreen/splash.png $THEME_DIR/MagicMirrorPersonal/splash.png && sudo cp ~/MagicMirrorPersonal/splashscreen/MagicMirror.plymouth $THEME_DIR/MagicMirrorPersonal/MagicMirror.plymouth && sudo cp ~/MagicMirrorPersonal/splashscreen/MagicMirror.script $THEME_DIR/MagicMirrorPersonal/MagicMirror.script; then
 			echo -e "\e[90mSplashscreen: Theme copied successfully.\e[0m"
 			if sudo plymouth-set-default-theme -R MagicMirror; then
-				echo -e "\e[92mSplashscreen: Changed theme to MagicMirror successfully.\e[0m"
+				echo -e "\e[92mSplashscreen: Changed theme to MagicMirrorPersonal successfully.\e[0m"
 			else
 				echo -e "\e[91mSplashscreen: Couldn't change theme to MagicMirror!\e[0m"
 			fi
@@ -149,15 +151,15 @@ else
 fi
 
 # Use pm2 control like a service MagicMirror
-read -p "Do you want use pm2 for auto starting of your MagicMirror (y/N)?" choice
+read -p "Do you want use pm2 for auto starting of your MagicMirrorPersonal (y/N)?" choice
 if [[ $choice =~ ^[Yy]$ ]]; then
     sudo npm install -g pm2
     sudo su -c "env PATH=$PATH:/usr/bin pm2 startup linux -u pi --hp /home/pi"
-    pm2 start ~/MagicMirror/installers/pm2_MagicMirror.json
+    pm2 start ~/MagicMirrorPersonal/installers/pm2_MagicMirror.json
     pm2 save
 fi
 
 echo " "
-echo -e "\e[92mWe're ready! Run \e[1m\e[97mDISPLAY=:0 npm start\e[0m\e[92m from the ~/MagicMirror directory to start your MagicMirror.\e[0m"
+echo -e "\e[92mWe're ready! Run \e[1m\e[97mDISPLAY=:0 npm start\e[0m\e[92m from the ~/MagicMirrorPersonal directory to start your MagicMirror.\e[0m"
 echo " "
 echo " "
