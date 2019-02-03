@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\installers"
+    "\\installers",
+    "\\modules",
+    "\\splashscreen",
+    "\\tests"
   ],
-  "SelectedNode": "\\installers\\raspberry.sh",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }

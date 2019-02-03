@@ -20,9 +20,9 @@ Module.register("compliments", {
 				"Go get'em!"
 			],
 			afternoon: [
-				"Good afternoon!",
-				"Hope you are having a great day!",
-				"Looking good today!"
+				"test1",//"Good afternoon!",
+				"test2",//"Hope you are having a great day!",
+				"test3",//"Looking good today!"
 			],
 			evening: [
 				"Good evening!",
